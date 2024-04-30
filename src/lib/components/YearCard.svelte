@@ -123,4 +123,10 @@
 			height: 5rem;
 	}
 
+	@media only screen and (hover: none) {
+			.year-card__wrapper:hover .pop-over {
+					display: none;
+			}
+	}
+
 </style>
