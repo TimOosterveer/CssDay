@@ -74,5 +74,14 @@
     z-index: -1;
 }
 
+@media (max-width: 900px) {
+    .intro-card {
+        width: 100%;
+    }
+
+    .intro-card__title {
+        font-size: 2rem;
+    }
+}
 
 </style>

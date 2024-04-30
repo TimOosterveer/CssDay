@@ -18,7 +18,7 @@
 		<IntroCard />
 
 		{#each Object.entries(data) as [year, details]}
-				<button
+				<div
 					class="year-card__wrapper"
 					style="background-color: {details.color.hex};"
 				>
@@ -39,7 +39,7 @@
 										</div>
 								{/each}
 						</div>
-				</button>
+				</div>
 
 		{/each}
 </div>
@@ -49,6 +49,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			gap: 1rem;
+			width: 100%;
 	}
 
 	.year-card__wrapper {
@@ -81,11 +82,6 @@
 			border-radius: 1rem;
 			border: 1px solid white;
 			background-color: transparent;
-			color: white;
-	}
-
-	.year-card__link {
-			text-decoration: none;
 			color: white;
 	}
 
