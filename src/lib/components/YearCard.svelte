@@ -9,8 +9,19 @@
 	function selectYear(year) {
 		  selectedYear = year;
 	}
+
+	// onMount(() => {
+	// 		document.addEventListener('click', (event) => {
+	// 				if (!event.target.closest('.pop-over') && !event.target.closest('.year-card__wrapper')) {
+	// 						removePopUp();
+	// 				}
+	// 		});
+	// });
+
   function removePopUp() {
-      selectedYear = null;
+			const popOver = document.querySelector('.pop-over');
+
+			popOver.style.display = 'none';
   }
 
 </script>
@@ -34,6 +45,7 @@
 						</div>
 
 						<div class="pop-over">
+								<button on:click={removePopUp}>Close</button>
 								{#each details.speakers as speaker}
 										<div class="pop-over__wrapper">
 												<p>{speaker.name}</p>
@@ -45,37 +57,6 @@
 				</button>
 
 		{/each}
-
-	<!-- {#if selectedYear !== null}
-  {console.log(selectedYear)}
-      <div class="year-card__pop-up">
-          <h2>Sprekers van {selectedYear}:</h2>
-
-          <ul>
-              {#each data[selectedYear].speakers as speaker}
-                  <li>{speaker.name}</li>
-              {/each}
-          </ul>
-
-          <button on:click={removePopUp} tabindex="1">
-            <svg class="year-card__svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-              ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g><g id="SVGRepo_iconCarrier">
-                <path
-                  d="M19 5L4.99998 19M5.00001 5L19 19"
-                  stroke="#ffffff"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </g></svg
-            >
-          </button>
-      </div>
-	{/if} -->
 </div>
 
 <style>
@@ -98,8 +79,8 @@
 			border: 2px dotted white;
 	}
 
-	.year-card__wrapper:hover, .year-card__wrapper:active  .pop-over {
-			opacity: 1;
+	.year-card__wrapper:hover .pop-over {
+			display: block;
 	}
 
 	.year-card__inner-wrapper {
@@ -124,7 +105,8 @@
 	}
 
 	.pop-over {
-			display: flex;
+			display: none;
+			/* display: flex; */
 			flex-wrap: wrap;
 			justify-content: space-evenly;
 			position: absolute;
@@ -134,7 +116,6 @@
 			width: 100%;
 			height: 100%;
 			border-radius: 1rem;
-			opacity: 0;
 			transition: .5s;
 			overflow-y: scroll;
 			background-color: rgba(0, 0, 0, 0.899);
