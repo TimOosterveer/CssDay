@@ -4,11 +4,13 @@
 	import IntroCard from './IntroCard.svelte';
 	export let data;
 
-  function removePopUp() {
-			const popOver = document.querySelector('.pop-over');
-
-			popOver.style.display = 'none';
+  function removePopUp(e) {
+		e.target.closest('.year-card__wrapper').querySelector('.pop-over').style.display = 'none';
   }
+
+	function showPopup(e) {
+		e.target.closest('.year-card__wrapper').querySelector('.pop-over').style.display = 'block';
+	}
 
 </script>
 
@@ -24,9 +26,7 @@
 								<span class="year-card__label">{year}</span>
 								<h1 class="year-card__title">{details.title}</h1>
 
-								<button class="year-card__button-main-site"
-									><a class="year-card__link" target="_blank" href={details.link} aria-label="hover over">hover or click</a>
-								</button>
+								<button on:click={showPopup} class="year-card__button-main-site">hover or click</button>
 						</div>
 
 						<div class="pop-over">
@@ -91,9 +91,6 @@
 
 	.pop-over {
 			display: none;
-			/* display: flex; */
-			flex-wrap: wrap;
-			justify-content: space-evenly;
 			position: absolute;
 			top: 0;
 			left: 0;
