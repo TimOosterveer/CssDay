@@ -22,12 +22,12 @@
 					class="year-card__wrapper"
 					style="background-color: {details.color.hex};"
 				>
-						<div class="year-card__inner-wrapper">
+						<section class="year-card__inner-wrapper">
 								<span class="year-card__label">{year}</span>
 								<h1 class="year-card__title">{details.title}</h1>
 
 								<button on:click={showPopup} class="year-card__button-main-site">hover or click</button>
-						</div>
+						</section>
 
 						<div class="pop-over">
 								<button on:click={removePopUp}>Close</button>

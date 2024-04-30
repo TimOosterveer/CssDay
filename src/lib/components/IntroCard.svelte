@@ -6,12 +6,12 @@
     <div class="intro-card__inner-wrapper">
         <span class="intro-card__label">Css day</span>
         <h1 class="intro-card__title">CSS Day is a focused, advanced CSS conference</h1>
-        <button class="intro-card__button-main-site"><a class="intro-card__link" target="_blank" href="https://cssday.nl/">main site</a></button>
+        <a aria-label="link to main site" class="intro-card__button-main-site" target="_blank" href="https://cssday.nl/">main site</a>
     </div>
 
-    <div class="intro-card__img-wrapper">
+    <picture class="intro-card__img-wrapper">
         <img class="intro-card__image" src={pic} alt="picture off css day">
-    </div>
+    </picture>
 </section>
 
 <style>
@@ -38,10 +38,6 @@
     font-size: 4rem;
 }
 
-.intro-card__link {
-    text-decoration: none;
-    color: white;
-}
 
 .intro-card__button-main-site {
     padding: .5rem 3rem .5rem 3rem;
@@ -50,6 +46,7 @@
     border: 1px solid white;
     background-color: transparent;
     color: white;
+    text-decoration: none;
 }
 
 .intro-card__img-wrapper::after {
