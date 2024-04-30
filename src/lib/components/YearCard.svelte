@@ -4,20 +4,6 @@
 	import IntroCard from './IntroCard.svelte';
 	export let data;
 
-	let selectedYear = null;
-
-	function selectYear(year) {
-		  selectedYear = year;
-	}
-
-	// onMount(() => {
-	// 		document.addEventListener('click', (event) => {
-	// 				if (!event.target.closest('.pop-over') && !event.target.closest('.year-card__wrapper')) {
-	// 						removePopUp();
-	// 				}
-	// 		});
-	// });
-
   function removePopUp() {
 			const popOver = document.querySelector('.pop-over');
 
@@ -32,7 +18,6 @@
 		{#each Object.entries(data) as [year, details]}
 				<button
 					class="year-card__wrapper"
-					on:click={() => selectYear(year)}
 					style="background-color: {details.color.hex};"
 				>
 						<div class="year-card__inner-wrapper">
